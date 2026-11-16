@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#060e18">
+    <meta name="description"
+        content="Laptop maintenance, system setup, hardware upgrades, and IT support services by Anaz Shahrin.">
+    <title>Laptop Services — Anaz Shahrin</title>
+</head>
+
+<style>
+    /* =========================================
+   LAPTOP SERVICES SECTION
+   ========================================= */
+
+    .service-categories {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+        align-items: stretch;
+    }
+
+    /* Main service cards */
+    .service-category {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        padding: 28px 24px;
+        overflow: hidden;
+
+        background: linear-gradient(145deg,
+                rgba(17, 30, 48, 0.92),
+                rgba(8, 17, 30, 0.96));
+
+        border: 1px solid rgba(148, 163, 184, 0.15);
+        border-radius: 20px;
+
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+
+        transition:
+            transform 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    /* Subtle gradient accent */
+    .service-category::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 24px;
+        right: 24px;
+        height: 2px;
+
+        background: linear-gradient(90deg,
+                transparent,
+                #38bdf8,
+                #818cf8,
+                transparent);
+
+        opacity: 0.75;
+    }
+
+    /* Soft background glow */
+    .service-category::after {
+        content: "";
+        position: absolute;
+        top: -90px;
+        right: -90px;
+
+        width: 180px;
+        height: 180px;
+
+        background: rgba(56, 189, 248, 0.055);
+        border-radius: 50%;
+        filter: blur(45px);
+
+        pointer-events: none;
+    }
+
+    .service-category>* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-category:hover {
+        transform: translateY(-5px);
+        border-color: rgba(56, 189, 248, 0.38);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Category badge */
+    .service-category .category-badge {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+
+        padding: 7px 12px;
+        margin-bottom: 20px;
+
+        color: #7dd3fc;
+        background: rgba(56, 189, 248, 0.09);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 7px;
+
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+    }
+
+    /* Card heading */
+    .service-category>h2 {
+        margin: 0 0 12px;
+
+        color: #f1f5f9;
+        font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.035em;
+    }
+
+    /* Card introduction */
+    .service-category>p {
+        margin: 0 0 24px;
+
+        color: #94a3b8;
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    /* List of services */
+    .service-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        margin-top: auto;
+    }
+
+    /* Individual service row */
+    .service-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 12px;
+
+        padding: 19px 0;
+
+        border-top: 1px solid rgba(148, 163, 184, 0.13);
+    }
+
+    /* Service number */
+    .service-item>span {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        padding-top: 2px;
+
+        color: #38bdf8;
+        font-family: monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+    }
+
+    /* Service title */
+    .service-item>b {
+        display: block;
+        align-self: start;
+
+        color: #e2e8f0;
+        font-size: 0.91rem;
+        font-weight: 600;
+        line-height: 1.55;
+
+        overflow-wrap: anywhere;
+        transition: color 0.25s ease;
+    }
+
+    .service-item:hover>b {
+        color: #7dd3fc;
+    }
+
+    /* Service description */
+    .service-item>p {
+        grid-column: 2;
+
+        margin: 7px 0 0;
+
+        color: #94a3b8;
+        font-size: 0.82rem;
+        line-height: 1.75;
+    }
+
+    /* Important information below a service list */
+    .service-category .small-note {
+        margin: 16px 0 0;
+        padding: 14px 15px;
+
+        color: #a5b4c7;
+        background: rgba(148, 163, 184, 0.055);
+
+        border-left: 2px solid rgba(56, 189, 248, 0.65);
+        border-radius: 0 8px 8px 0;
+
+        font-size: 0.78rem;
+        line-height: 1.75;
+    }
+
+    /* =========================================
+   RESPONSIVE LAYOUT
+   ========================================= */
+
+    /* Tablet */
+    @media (max-width: 1100px) {
+        .service-categories {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .service-category {
+            padding: 25px 22px;
+        }
+
+        .service-category:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .service-category:last-child .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            column-gap: 20px;
+        }
+
+        .service-category:last-child .service-item {
+            grid-template-columns: 28px minmax(0, 1fr);
+            align-content: start;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+        .service-categories {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .service-category,
+        .service-category:last-child {
+            grid-column: auto;
+            padding: 24px 20px;
+            border-radius: 16px;
+        }
+
+        .service-category>h2 {
+            font-size: 1.35rem;
+        }
+
+        .service-category>p {
+            font-size: 0.88rem;
+        }
+
+        .service-category:last-child .service-list {
+            display: flex;
+        }
+
+        .service-item {
+            grid-template-columns: 30px minmax(0, 1fr);
+            padding: 17px 0;
+        }
+
+        .service-item>b {
+            font-size: 0.9rem;
+        }
+
+        .service-item>p {
+            font-size: 0.82rem;
+        }
+
+        .service-category:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    /* Small phones */
+    @media (max-width: 380px) {
+
+        .service-category,
+        .service-category:last-child {
+            padding: 22px 16px;
+        }
+
+        .service-item {
+            grid-template-columns: 25px minmax(0, 1fr);
+            column-gap: 9px;
+        }
+
+        .service-category .category-badge {
+            font-size: 0.65rem;
+        }
+    }
+
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+
+        .service-category,
+        .service-item>b {
+            transition: none;
+        }
+
+        .service-category:hover {
+            transform: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="Anaz Shahrin home">
+            <span class="brand-mark">N.</span>
+            <span>Anaz Shahrin<span class="brand-dot">.</span></span>
+        </a>
+
+        <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false"
+            aria-label="Toggle navigation">☰</button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./skills.html">Skills</a>
+            <a href="./journey.html">Journey</a>
+            <a class="nav-cta" href="./contact.html" aria-current="page">Contact <span>↗</span></a>
+        </nav>
+    </header>
+
+    <main class="page-wrap inner-page contact-page">
+        <div class="section-kicker reveal">
+            <span>01 / LAPTOP SERVICES</span>
+            <span class="kicker-line"></span>
+        </div>
+
+        <section class="page-title-grid">
+            <div>
+                <p class="eyebrow">PRACTICAL SUPPORT · DEVICE CARE · SYSTEM SETUP</p>
+                <h1 class="page-title reveal">
+                    Affordable laptop
+                    <span class="gradient-text">care &amp; support.</span>
+                </h1>
+            </div>
+            <p class="body-copy reveal">
+                Part-time laptop services are available during my free time.
+                Whether you need routine maintenance, a system setup, a hardware
+                upgrade, or help moving your files, we can discuss the work
+                required before arranging a service.
+            </p>
+
+            <p class="small-note">
+                Prices cover labour only. Parts and licensed software are
+                charged separately where applicable. Final availability and
+                pricing depend on your device, compatibility, and the work
+                required.
+            </p>
+        </section>
+
+        <section class="section-block">
+            <!-- <div class="intro-grid">
+                <h2 class="section-heading reveal">
+                    Services tailored to
+                    <span class="gradient-text">your device.</span>
+                </h2>
+                <p class="body-copy reveal">
+                    Prices cover labour only. Parts and licensed software are
+                    charged separately where applicable. Final availability and
+                    pricing depend on your device, compatibility, and the work
+                    required.
+                </p>
+            </div>-->
+
+            <div class="service-categories reveal">
+                <article class="service-category">
+                    <span class="category-badge">Cleaning &amp; Care</span>
+                    <h2>Keep your laptop running smoothly</h2>
+                    <p>Routine maintenance can help manage heat and keep your device in good working condition.</p>
+
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span>01</span>
+                            <b>Internal laptop cleaning (fan + dust)</b>
+                            <p>Cleaning of internal fans and dust removal to help reduce dust build-up and overheating.
+                            </p>
+                        </div>
+                        <div class="service-item">
+                            <span>02</span>
+                            <b>Thermal paste replacement</b>
+                            <p>Replace old thermal paste to support heat transfer between the CPU/GPU and heatsink.</p>
+                        </div>
+                        <div class="service-item">
+                            <span>03</span>
+                            <b>Cleaning + thermal paste combo</b>
+                            <p>Combine internal cleaning and thermal paste replacement in one maintenance service.</p>
+                        </div>
+                    </div>
+                    <p class="small-note">
+                        Recommended every 6–12 months depending on usage and environment. Pricing may vary by laptop
+                        model and internal layout.
+                    </p>
+                </article>
+
+                <article class="service-category">
+                    <span class="category-badge">System Setup</span>
+                    <h2>Get your laptop ready for work</h2>
+                    <p>Operating system installation and basic software configuration for compatible devices.</p>
+
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span>01</span>
+                            <b>Format laptop &amp; install Windows 10/11</b>
+                            <p>Clean Windows installation, subject to device compatibility and licence requirements.</p>
+                        </div>
+                        <div class="service-item">
+                            <span>02</span>
+                            <b>Install basic software</b>
+                            <p>Install requested applications, drivers, and utilities using legitimate installers.</p>
+                        </div>
+                        <div class="service-item">
+                            <span>03</span>
+                            <b>Windows + basic software combo</b>
+                            <p>Combine Windows setup with installation of commonly used applications.</p>
+                        </div>
+                    </div>
+
+                    <p class="small-note">
+                        Windows installation depends on device compatibility and a valid Windows licence.
+                        Software is installed using legitimate installers and licences.
+                    </p>
+                </article>
+
+                <article class="service-category">
+                    <span class="category-badge">Hardware &amp; Data</span>
+                    <h2>Upgrade hardware and manage files</h2>
+                    <p>Assistance with compatible storage or memory upgrades and personal data transfer.</p>
+
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span>01</span>
+                            <b>SSD / HDD installation or upgrade</b>
+                            <p>Install or replace a solid-state drive or hard drive for additional storage or improved
+                                responsiveness.</p>
+                        </div>
+                        <div class="service-item">
+                            <span>02</span>
+                            <b>RAM installation (customer-provided)</b>
+                            <p>Install customer-provided memory modules after checking device compatibility.</p>
+                        </div>
+                        <div class="service-item">
+                            <span>03</span>
+                            <b>Data transfer or backup</b>
+                            <p>Transfer personal files between devices or help create a backup, depending on device
+                                condition and data volume.</p>
+                        </div>
+                    </div>
+
+                    <p class="small-note">
+                        Data transfer pricing depends on the amount of data and the condition of the source device.
+                        Please back up important files before handing over a device whenever possible.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-kicker reveal">
+                <span>02 / HOW IT WORKS</span>
+                <span class="kicker-line"></span>
+            </div>
+
+            <div class="principles">
+                <article class="principle reveal">
+                    <span>01</span>
+                    <h3>Send an enquiry</h3>
+                    <p>Share your laptop model, the issue you are experiencing, and the service you are interested in.
+                    </p>
+                </article>
+                <article class="principle reveal">
+                    <span>02</span>
+                    <h3>Confirm the details</h3>
+                    <p>Discuss compatibility, the work involved, estimated pricing, and availability before proceeding.
+                    </p>
+                </article>
+                <article class="principle reveal">
+                    <span>03</span>
+                    <h3>Arrange the service</h3>
+                    <p>If the details are agreed upon, arrange a suitable time for the service.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="content-panel reveal">
+                <p class="eyebrow">HAVE A LAPTOP ISSUE?</p>
+                <h2>Tell me what needs attention.</h2>
+                <p>
+                    Include your laptop model, a short description of the problem,
+                    and the service you need. I will review the details and discuss
+                    the next steps with you.
+                </p>
+                <a class="button button-primary"
+                    href="mailto:your.anazshahrin@gmail.com?subject=Laptop%20Service%20Enquiry">
+                    Enquire about a service <span>↗</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="page-next reveal">
+            <span>EXPLORE MORE</span>
+            <a href="./skills.html">Technical Skills <b>↗</b></a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand" href="./index.html">
+            <span class="brand-mark">N.</span>
+            <span>Anaz Shahrin<span class="brand-dot">.</span></span>
+        </a>
+        <p>Information Technology E-Portfolio · <span class="year"></span></p>
+        <p>Technology, with a practical touch.</p>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

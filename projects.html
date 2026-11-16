@@ -8,6 +8,109 @@
     <meta name="description"
         content="Anaz Shahrin's projects in software development, student rental platforms, home cloud storage, PC assembly, and practical IT support.">
     <title>Projects — Anaz Shahrin</title>
+    <style>
+        /* Project photography: keeps the existing project-card structure and labels. */
+        .project-visual {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            min-height: 0;
+            height: auto;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        /* Make the image fill the landscape container */
+        .project-visual img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Project label */
+        .project-visual .visual-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            right: auto;
+            z-index: 5;
+
+            max-width: calc(100% - 28px);
+            padding: 7px 10px;
+
+            color: #dbeafe;
+            background: rgba(6, 14, 24, 0.82);
+            border: 1px solid rgba(125, 211, 252, 0.25);
+            border-radius: 7px;
+
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+
+            white-space: normal;
+            overflow-wrap: anywhere;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Project number */
+        .project-visual .visual-index {
+            position: absolute;
+            right: 14px;
+            bottom: 10px;
+            z-index: 4;
+
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.06em;
+            color: rgba(255, 255, 255, 0.18);
+
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @media (max-width: 480px) {
+            .project-visual {
+                aspect-ratio: 16 / 9;
+            }
+
+            .project-visual .visual-label {
+                top: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+                font-size: 0.58rem;
+                padding: 6px 8px;
+            }
+
+            .project-visual .visual-index {
+                right: 10px;
+                bottom: 8px;
+                font-size: 3rem;
+            }
+
+            .project-visual {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                overflow: hidden;
+            }
+
+            .project-visual img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -54,11 +157,51 @@
             </p>
         </section>
 
+        <article class="project-card project-featured reveal">
+            <div class="project-visual visual-stock">
+                <img class="project-image" src="./assets/images/studenthive.jpg"
+                    alt="StudentHive student rental listing website screenshot" loading="lazy" decoding="async">
+                <span class="visual-label">ACADEMIC PROJECT · WEB DEVELOPMENT</span>
+                <span class="visual-index">01</span>
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <p class="project-type">FINAL YEAR PROJECT</p>
+                    <h3>StudentHive — Student Rent House System</h3>
+                    <p>
+                        Designed and developed a centralized rental
+                        listing platform tailored to POLIMAS students.
+                        Search and filtering features help students
+                        explore accommodation options by budget,
+                        room type, and available amenities.
+                    </p>
+                    <p>
+                        <strong>Recognition:</strong> Gold Medal at
+                        the Information and Communication Technology
+                        Exhibition (November 2024) and Bronze Medal
+                        at the TechIC Technology Innovation Competition
+                        (October 2024).
+                    </p>
+                    <div class="tag-row">
+                        <span>Web Development</span>
+                        <span>Database Design</span>
+                        <span>Search &amp; Filtering</span>
+                    </div>
+                </div>
+                <a class="project-link" href="./contact.html" aria-label="Enquire about StudentHive">
+                    ↗
+                </a>
+            </div>
+        </article>
+
         <div class="project-grid">
             <article class="project-card project-featured reveal">
                 <div class="project-visual visual-lab">
+                    <img class="project-image" src="./assets/images/track-and-spend5.jpg"
+                        alt="Track and Spend personal finance system screenshot" loading="lazy" decoding="async">
                     <span class="visual-label">UTeM · ACADEMIC WORKSHOP 1</span>
-                    <div class="visual-index">01</div>
+                    <div class="visual-index">02</div>
                 </div>
 
                 <div class="project-info">
@@ -72,15 +215,7 @@
                             informed spending decisions.
                         </p>
 
-                        <h4>Key Features</h4>
-                        <ul>
-                            <li>User, income, and expense modules with CRUDS operations</li>
-                            <li>Monthly budgets with category-based warning alerts</li>
-                            <li>Dynamic income, expense, and remaining-balance calculations</li>
-                            <li>Monthly summaries, category analysis, and ASCII bar charts</li>
-                            <li>Admin and student roles with SHA-256 password hashing</li>
-                            <li>Parameterized SQL queries to help prevent SQL injection</li>
-                        </ul>
+
 
                         <div class="tag-row">
                             <span>C++</span>
@@ -93,67 +228,19 @@
                             <span>RBAC</span>
                         </div>
                     </div>
-                </div>
-            </article>
-
-            <article class="project-card project-featured reveal">
-                <div class="project-visual visual-stock">
-                    <span class="visual-label">ACADEMIC PROJECT · WEB DEVELOPMENT</span>
-                    <div class="dashboard-mock">
-                        <div class="dash-top"><i></i><i></i><i></i></div>
-                        <div class="dash-content">
-                            <div class="dash-sidebar"></div>
-                            <div class="dash-main">
-                                <div class="dash-bars">
-                                    <b></b><b></b><b></b><b></b>
-                                </div>
-                                <div class="dash-panels"><i></i><i></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="visual-index">02</span>
-                </div>
-
-                <div class="project-info">
-                    <div>
-                        <p class="project-type">FINAL YEAR PROJECT</p>
-                        <h3>StudentHive — Student Rent House System</h3>
-                        <p>
-                            Designed and developed a centralized rental
-                            listing platform tailored to POLIMAS students.
-                            Search and filtering features help students
-                            explore accommodation options by budget,
-                            room type, and available amenities.
-                        </p>
-                        <p>
-                            <strong>Recognition:</strong> Gold Medal at
-                            the Information and Communication Technology
-                            Exhibition (November 2024) and Bronze Medal
-                            at the TechIC Technology Innovation Competition
-                            (October 2024).
-                        </p>
-                        <div class="tag-row">
-                            <span>Web Development</span>
-                            <span>Database Design</span>
-                            <span>Search &amp; Filtering</span>
-                        </div>
-                    </div>
-                    <a class="project-link" href="./contact.html" aria-label="Enquire about StudentHive">
+                    <a class="project-link" href="https://canva.link/9p7p1um7xxx0kc3" aria-label="Enquire about StudentHive">
                         ↗
                     </a>
                 </div>
             </article>
 
+
+
             <article class="project-card reveal">
                 <div class="project-visual visual-lab">
+                    <img class="project-image" src="./assets/images/home-cloud-lab.jpg"
+                        alt="Repurposed laptop used for the home cloud storage lab" loading="lazy" decoding="async">
                     <span class="visual-label">PERSONAL PROJECT · HOME LAB</span>
-                    <div class="lab-window">
-                        <div class="lab-window-bar"></div>
-                        <div class="lab-line line-one"></div>
-                        <div class="lab-line line-two"></div>
-                        <div class="lab-line line-three"></div>
-                        <div class="lab-pill">HOME CLOUD LAB</div>
-                    </div>
                     <span class="visual-index">03</span>
                 </div>
 
@@ -183,12 +270,9 @@
 
             <article class="project-card reveal">
                 <div class="project-visual visual-campus">
+                    <img class="project-image" src="./assets/images/custom-pc-build.jpg"
+                        alt="Custom desktop PC built as a personal hardware project" loading="lazy" decoding="async">
                     <span class="visual-label">HARDWARE · PC ASSEMBLY</span>
-                    <div class="campus-shapes">
-                        <div class="shape shape-a">CPU</div>
-                        <div class="shape shape-b">RAM</div>
-                        <div class="shape shape-c">↗</div>
-                    </div>
                     <span class="visual-index">04</span>
                 </div>
 
@@ -213,19 +297,9 @@
 
             <article class="project-card reveal">
                 <div class="project-visual visual-stock">
+                    <img class="project-image" src="./assets/images/pc-consultation.jpg"
+                        alt="PC component comparison and specification planning visual" loading="lazy" decoding="async">
                     <span class="visual-label">HARDWARE RESEARCH · CONSULTATION</span>
-                    <div class="dashboard-mock">
-                        <div class="dash-top"><i></i><i></i><i></i></div>
-                        <div class="dash-content">
-                            <div class="dash-sidebar"></div>
-                            <div class="dash-main">
-                                <div class="dash-bars">
-                                    <b></b><b></b><b></b><b></b>
-                                </div>
-                                <div class="dash-panels"><i></i><i></i></div>
-                            </div>
-                        </div>
-                    </div>
                     <span class="visual-index">05</span>
                 </div>
 
@@ -250,14 +324,9 @@
 
             <article class="project-card reveal">
                 <div class="project-visual visual-lab">
+                    <img class="project-image" src="./assets/images/laptop-maintenance.jpg"
+                        alt="Laptop hardware maintenance and system setup" loading="lazy" decoding="async">
                     <span class="visual-label">PRACTICAL IT SUPPORT</span>
-                    <div class="lab-window">
-                        <div class="lab-window-bar"></div>
-                        <div class="lab-line line-one"></div>
-                        <div class="lab-line line-two"></div>
-                        <div class="lab-line line-three"></div>
-                        <div class="lab-pill">SYSTEM MAINTENANCE</div>
-                    </div>
                     <span class="visual-index">06</span>
                 </div>
 
@@ -277,7 +346,7 @@
                             <span>PC Troubleshooting</span>
                         </div>
                     </div>
-                    <a class="project-link" href="./contact.html"
+                    <a class="project-link" href="./services.html"
                         aria-label="Enquire about laptop maintenance services">
                         ↗
                     </a>
